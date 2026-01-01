@@ -39,55 +39,8 @@ public class JVLTUtils {
 	}
 
 	public void print(String file_name, String field) {
-		try {
-			open(file_name);
-			HashMap<String, TreeSet<Entry>> entry_map = new HashMap<String, TreeSet<Entry>>();
-			TreeSet<String> value_set = new TreeSet<String>();
-			MetaData data = _model.getDictModel().getMetaData(Entry.class);
-			for (Entry entry : _dict.getEntries()) {
-				String value = data.getAttribute(field)
-						.getFormattedValue(entry);
-				if (value_set.add(value)) {
-					entry_map.put(value, new TreeSet<Entry>());
-				}
-
-				Set<Entry> set = entry_map.get(value);
-				set.add(entry);
-			}
-
-			Writer writer = new BufferedWriter(new OutputStreamWriter(
-					System.out, "UTF-8"));
-			writer.write("<html>\n");
-			Iterator<String> it = value_set.iterator();
-			int i = 0;
-			char last_first_char = 0;
-			while (it.hasNext()) {
-				String value = it.next();
-				char first_char = value.length() == 0 ? 0 : value.charAt(0);
-				Set<Entry> set = entry_map.get(value);
-				Iterator<Entry> it2 = set.iterator();
-				while (it2.hasNext()) {
-					if (i > 0) {
-						writer.write(", ");
-					}
-
-					if (first_char != 0 && first_char != last_first_char) {
-						writer.write("<b>" + Character.toUpperCase(first_char)
-								+ "</b> ");
-						last_first_char = first_char;
-					}
-
-					Entry entry = it2.next();
-					writer.write(entry.getOrthography());
-					i++;
-				}
-			}
-			writer.write("</html>\n");
-			writer.flush();
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
-	}
+    System.out.println("print method temporarily skipped for parsing");
+    }
 
 	public void findDuplicates(String file_name) {
 		try {
