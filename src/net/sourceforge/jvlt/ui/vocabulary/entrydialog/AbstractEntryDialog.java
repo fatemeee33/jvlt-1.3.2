@@ -168,9 +168,10 @@ public abstract class AbstractEntryDialog extends AbstractDialog {
 	 * 
 	 * @param entry the entries to display in the dialog
 	 */
-	protected final void setCurrentEntry(Entry... entry) {
-		setCurrentEntry(Arrays.asList(entry));
-	}
+	protected final void setCurrentEntry(Entry[] entry) {
+    setCurrentEntry(Arrays.asList(entry));
+    }
+
 
 	/**
 	 * Sets the entries to display in the dialog.
